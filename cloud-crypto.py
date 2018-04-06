@@ -265,7 +265,7 @@ def main(myargs):
 					mprint("deleted file: '" + f + "' -> '" + out_folder + metadata[f]["uuid"] + "'")
 		
 		# write metadata to file
-		with open(out_folder + 'metadata.txt', 'w') as file:
+		with open('metadata.txt', 'w') as file:
 			file.write(json.dumps(g_metadata, indent=4, sort_keys=True))
 		
 		print("metadata are stored in " + out_folder + 'metadata.txt')
