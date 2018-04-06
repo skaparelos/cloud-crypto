@@ -1,6 +1,4 @@
-import sys
-import os
-import uuid
+import sys, os, uuid, hashlib
 from cryptography.fernet import Fernet
 
 g_metadata = {}
@@ -29,7 +27,6 @@ def help(prog_name):
 	print("    python " + prog_name + " -d ../out_e -m ../out_e\metadata.txt -o ../out_d")
 
 
-import hashlib
 def hash_file(file_path):
 	
 	# read data in 64kb chunks
@@ -164,12 +161,15 @@ def main(myargs):
 	
 	fernet_key = None
 	if "-k" in myargs:
+
+		# Load key
+
 		# user password to decrypt encrypted file containing Fernet key
 		pwd = fernet_key_from_user_pass()
 		fernet_key = decrypt_file(encr_file_path=myargs["-k"], key=pwd)
 	else:
 
-		# We create a new Fernet key and use the user's password to encrypt it
+		# Create a new Fernet key and use the user's password to encrypt it
 		# We could use user's password to directly encrypt data, but it could be a weak password
 
 		# create Fernet key
