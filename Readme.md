@@ -94,7 +94,7 @@ If you delete a file, then it will be deleted from the encrypted. e.g. deleting 
 $ python cloud-crypto.py -d out_e/ -m metadata.txt -k cloud-key.key -v
 ```
 
-### 4. Large files that cannot be stored for long
+#### 4. Large files that cannot be stored for long
 If your photos folder is too large to encrypt it all at once on your hard drive or you can't copy it in your machine due to space requirements, you can copy parts of it on your pc.
 
 e.g. so far you have encrypted photos of 2016 and 2017. Now, you can delete folders '2016', '2017' and copy from your hard drive folder '2015'. Then you can append '2015' into the rest using the '-a' flag:
